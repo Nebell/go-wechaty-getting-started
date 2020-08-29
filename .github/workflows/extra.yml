@@ -31,7 +31,7 @@ jobs:
     - name: Test
       run: |
         echo ${{ github.head_ref }}
-        echo ${{ endsWith(${{ github.head_ref }}, 'update-dependencies') }}
+        echo ${{ endsWith(github.head_ref, 'update-dependencies') }}
         make install
         make test
 
