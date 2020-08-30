@@ -30,7 +30,8 @@ jobs:
 
     - name: Test
       run: |
-        echo ${{ github.head_ref }}
+        echo ${GITHUB_REF##*/}
+        echo ${GITHUB_HEAD_REF##*/}
         echo ${{ false == contains(github.head_ref, 'master') }}
         make install
         make test
