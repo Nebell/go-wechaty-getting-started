@@ -31,7 +31,7 @@ jobs:
     - name: Test
       run: |
         echo ${{ github.head_ref }}
-        echo ${{ false == contains(github.head_ref, 'update-dependencies') }}
+        echo ${{ false == contains(github.head_ref, 'master') }}
         make install
         make test
       env:
