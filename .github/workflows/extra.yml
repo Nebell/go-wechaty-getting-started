@@ -30,9 +30,12 @@ jobs:
 
     - name: Test
       run: |
+        echo ${ REF }
         echo ${{ false == contains(github.head_ref, 'update-dependencies') }}
         make install
         make test
+      env:
+        REF: ${{ github.head_ref }}
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v2
