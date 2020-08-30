@@ -30,7 +30,7 @@ jobs:
 
     - name: Test
       run: |
-        echo ${{ github.event == 'pull_request' }}
+        echo ${{ github.event_name == 'pull_request' }}
         echo ${GITHUB_HEAD_REF##*/}
         echo ${{ false == contains(github.head_ref, 'master') }}
         make install
