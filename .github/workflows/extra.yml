@@ -31,7 +31,7 @@ jobs:
     - name: Test
       run: |
         echo ${{ github.event_name == 'pull_request' }}
-        echo ${{ toJson(github) }}
+        echo "${{ toJson(github) }}"
         echo ${{ false == contains(github.head_ref, 'master') }}
         make install
         make test
