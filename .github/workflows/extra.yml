@@ -30,7 +30,7 @@ jobs:
 
     - name: Test
       run: |
-        echo ${ REF }
+        echo ${ env.REF }
         echo ${{ false == contains(github.head_ref, 'update-dependencies') }}
         make install
         make test
