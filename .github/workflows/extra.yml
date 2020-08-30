@@ -30,11 +30,13 @@ jobs:
 
     - name: Test
       run: |
-        echo ${{ false == contains('refs/remotes/origin/update-dependencies', 'update-dependencies') }}
+        echo ${{ github.head_ref }}
         echo ${{ false == contains(github.head_ref, 'update-dependencies') }}
         make install
         make test
       env:
+        GIT_TRACE: 1
+        GIT_CURL_VERBOSE: 1
         REF: ${{ github.head_ref }}
 
     - name: Create Pull Request
